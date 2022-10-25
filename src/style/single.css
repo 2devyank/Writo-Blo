@@ -1,0 +1,16 @@
+.display{
+    /* display: flex;
+    flex-direction: column; */
+    width: 70%;
+    border: 1px solid red;
+    padding: 15px 15px;
+}
+.pd{
+    display: flex;
+    padding: 0px 200px;
+    border: 1px solid red;
+}
+.dat{
+    font-size: smaller;
+color: gray;
+}

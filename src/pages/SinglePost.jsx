@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase';
+import "../style/single.css"
 
 function SinglePost() {
 const [post,setpost]=useState({});
@@ -27,10 +28,26 @@ const {name}=useParams();
     fetchdata();
 
     },[])
-console.log(post);
+// console.log(post);
   return (
-    <div>
+    <div className='pd'>
+        <div className='display'>
+            <span>
+            {post.name}</span>
+            <br />
+            <span  className='dat'>
+                {new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}
+                </span>
+            <h1>
 
+            {post.title}
+            </h1>
+            <span className='tags'>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
+          <p>
+          {post.post}
+              </p> 
+
+        </div>
     </div>
   )
 }
