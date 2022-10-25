@@ -2,6 +2,7 @@ import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {useUserAuth} from "../Context.jsx";
 import { db } from '../firebase.jsx';
 import "../style/home.css"
@@ -26,6 +27,11 @@ function Home() {
   },[])
   // console.log(postdata[0].timestamp);
   // console.log(postdata)
+ const  navigate=useNavigate();
+  const handlecard=(name)=>{
+navigate(`/post/${name}`)
+
+  }
   return (
     <div className='home'>
 
@@ -34,13 +40,14 @@ function Home() {
  {
    postdata.map((post)=>{
      
-    return  <div className='card'>
-      <p >{post.name}</p>
+    return  <div className='card' onClick={handlecard(post.title)}>
+      <span >{post.name}</span>
       <span className="name">{new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}</span>
       <h3>{post.title}</h3>
-      <span>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
+      <span className='tags'>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
+  
       <p>{post.post.substring(0,70)}...</p>
-
+{/* <p>❤️</p> */}
       </div>
    })
       

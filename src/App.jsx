@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
+import SinglePost from './pages/SinglePost';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
        <Route  path="/post" element={<Post/>} />
        <Route  path="/create" element={<CreatePost/>} />
        <Route  path="/profile" element={<Profile/>} />
+       <Route  path="/post/:name" element={<SinglePost/>} />
      </Routes>
    </div>
    </BrowserRouter>

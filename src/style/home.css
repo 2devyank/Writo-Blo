@@ -13,13 +13,20 @@
 }
 .card{
         border: 1px solid blue;
+        border-radius: 9rem;
     width: 40%;
     height: 230px;
 padding: 15px 15px;
-line-height: normal;
+/* line-height: normal; */
+/* gap: 2px; */
 }
 .name{
 /* border: 1px solid red; */
 font-size: smaller;
 color: gray;
+}
+.tags{
+    font-size:medium;
+    font-weight: 300;
+    font-style: italic;
 }
