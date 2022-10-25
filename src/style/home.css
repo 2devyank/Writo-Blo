@@ -16,4 +16,10 @@
     width: 40%;
     height: 230px;
 padding: 15px 15px;
+line-height: normal;
+}
+.name{
+/* border: 1px solid red; */
+font-size: smaller;
+color: gray;
 }

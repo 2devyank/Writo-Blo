@@ -24,7 +24,8 @@ function Home() {
     }
     fetchdata();
   },[])
-  // console.log(postdata);
+  // console.log(postdata[0].timestamp);
+  // console.log(postdata)
   return (
     <div className='home'>
 
@@ -34,12 +35,11 @@ function Home() {
    postdata.map((post)=>{
      
     return  <div className='card'>
-      <p>{post.name}</p>
-      <span>{post.timestamp}</span>
-      <br />
+      <p >{post.name}</p>
+      <span className="name">{new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}</span>
       <h3>{post.title}</h3>
       <span>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
-      <p>{post.post}</p>
+      <p>{post.post.substring(0,70)}...</p>
 
       </div>
    })
