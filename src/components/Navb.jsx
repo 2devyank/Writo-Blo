@@ -5,12 +5,24 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Navb() {
+  const navigate=useNavigate();
+  
+  const handlehomeclick=()=>{
+    navigate("/")
+  }
+  const handleprofileclick=()=>{
+    navigate("/profile")
+  }
+  const handlecreateclick=()=>{
+    navigate("/create")
+  }
   return (
     <Navbar bg="light" expand="lg">
     <Container fluid>
-      <Navbar.Brand href="#">WritoBlo</Navbar.Brand>
+      <Navbar.Brand onClick={handlehomeclick}>WritoBlo</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -18,8 +30,8 @@ function Navb() {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link href="#action1">Profile</Nav.Link>
-          <Nav.Link href="#action2">Create Post</Nav.Link>
+          <Nav.Link onClick={handleprofileclick}>Profile</Nav.Link>
+          <Nav.Link onClick={handlecreateclick} >Create Post</Nav.Link>
          
         
         </Nav>

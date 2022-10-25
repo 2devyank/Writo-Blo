@@ -21,6 +21,8 @@ const [user,setuser]=useState("");
             // console.log(currentuser);
             // localStorage.clear();
             localStorage.setItem("Id",currentuser.uid)
+            localStorage.setItem("name",currentuser.displayName)
+            localStorage.setItem("photo",currentuser.photoURL)
         })
         return()=>{
 unsubscribe();

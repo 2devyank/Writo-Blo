@@ -1,0 +1,19 @@
+.home{
+    padding: 50px 50px;
+}
+.cardcover{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* padding: 0px 100px; */
+    /* justify-content: center;
+     */
+     align-items: center;
+}
+.card{
+        border: 1px solid blue;
+    width: 40%;
+    height: 230px;
+padding: 15px 15px;
+}
