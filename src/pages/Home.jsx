@@ -2,7 +2,7 @@ import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {useUserAuth} from "../Context.jsx";
 import { db } from '../firebase.jsx';
 import "../style/home.css"
@@ -26,12 +26,12 @@ function Home() {
     fetchdata();
   },[])
   // console.log(postdata[0].timestamp);
-  // console.log(postdata)
+  console.log(postdata)
  const  navigate=useNavigate();
-  const handlecard=(name)=>{
-navigate(`/post/${name}`)
+  // const handlecard=(name)=>{
+  //     navigate(`/home/${name}`)
 
-  }
+  // }
   return (
     <div className='home'>
 
@@ -40,7 +40,7 @@ navigate(`/post/${name}`)
  {
    postdata.map((post)=>{
      
-    return  <div className='card' onClick={handlecard(post.title)}>
+    return  <div className='card' >
       <span >{post.name}</span>
       <span className="name">{new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}</span>
       <h3>{post.title}</h3>
@@ -48,6 +48,8 @@ navigate(`/post/${name}`)
   
       <p>{post.post.substring(0,70)}...</p>
 {/* <p>❤️</p> */}
+{/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
+<Link to={`/home/${post.title}`}>FULL</Link>
       </div>
    })
       

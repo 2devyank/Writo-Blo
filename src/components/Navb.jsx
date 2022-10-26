@@ -11,7 +11,7 @@ function Navb() {
   const navigate=useNavigate();
   
   const handlehomeclick=()=>{
-    navigate("/")
+    navigate("/home")
   }
   const handleprofileclick=()=>{
     navigate("/profile")

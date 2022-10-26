@@ -28,7 +28,7 @@ const {name}=useParams();
     fetchdata();
 
     },[])
-// console.log(post);
+console.log(post);
   return (
     <div className='pd'>
         <div className='display'>
@@ -36,13 +36,13 @@ const {name}=useParams();
             {post.name}</span>
             <br />
             <span  className='dat'>
-                {new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}
+                {/* {new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")} */}
                 </span>
             <h1>
 
             {post.title}
             </h1>
-            <span className='tags'>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
+            {/* <span >{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span> */}
           <p>
           {post.post}
               </p> 
