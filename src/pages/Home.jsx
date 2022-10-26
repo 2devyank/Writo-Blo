@@ -26,7 +26,7 @@ function Home() {
     fetchdata();
   },[])
   // console.log(postdata[0].timestamp);
-  console.log(postdata)
+  // console.log(postdata)
  const  navigate=useNavigate();
   // const handlecard=(name)=>{
   //     navigate(`/home/${name}`)
@@ -49,7 +49,7 @@ function Home() {
       <p>{post.post.substring(0,70)}...</p>
 {/* <p>❤️</p> */}
 {/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
-<Link to={`/home/${post.title}`}>FULL</Link>
+<Link to={`/${post.title}`}>FULL</Link>
       </div>
    })
       

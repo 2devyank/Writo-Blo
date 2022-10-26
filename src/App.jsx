@@ -15,12 +15,12 @@ function App() {
    <Navb/>
    <div>
      <Routes>
-       <Route  path="/home" element={<Home/>} />
+       <Route  path="/" element={<Home/>} />
        <Route  path="/login" element={<Login/>} />
        {/* <Route  path="/post" element={<Post/>} /> */}
        <Route  path="/create" element={<CreatePost/>} />
        <Route  path="/profile" element={<Profile/>} />
-       <Route  path="/home/:name" element={<SinglePost/>} />
+       <Route  path="/:name" element={<SinglePost/>} />
      </Routes>
    </div>
    </BrowserRouter>

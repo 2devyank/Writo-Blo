@@ -40,7 +40,7 @@ const navigate=useNavigate();
 const createPost=async(e)=>{
   e.preventDefault();
   await addDoc(collection(db,"posts"),{title,post,tags,createdAt:serverTimestamp(),name:localStorage.getItem("name"),id:localStorage.getItem("Id")})
-navigate("/home");
+navigate("/");
 }
 
 
