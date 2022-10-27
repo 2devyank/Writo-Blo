@@ -1,6 +1,8 @@
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { Button, Modal } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import { useUserAuth } from '../Context'
 import { db } from '../firebase';
 import "../style/profile.css"
@@ -11,6 +13,8 @@ function Profile() {
 
   const [show, setShow] = useState(false);
   const [bio,setbio]=useState("");
+  const [userbio,setuserbio]=useState({});
+  const [userpost,setuserpost]=useState([]);
 
   const handlebio = async() => {
    await setDoc(doc(db,"users",localStorage.getItem("Id")),{
@@ -24,6 +28,39 @@ function Profile() {
   const handleShow = () => setShow(true);
   const handleclose = () => setShow(false);
 
+  useEffect(()=>{
+    const fetchdata=async()=>{
+    
+      try{
+        const docRef=doc(db,"users",localStorage.getItem("Id"))
+        await getDoc(docRef)
+        .then((doc)=>{
+          setuserbio(doc.data())
+        })
+            }catch(err){
+        console.log(err);
+      }
+
+    }
+    fetchdata();
+
+    const fetchpost=async()=>{
+      let list=[];
+      try{
+        const q=query(collection(db,"posts"),where("name","==",localStorage.getItem("name")))
+        const querysnapshot=await getDocs(q);
+        querysnapshot.forEach((doc)=>{
+          list.push({...doc.data()})
+          setuserpost(list);
+        })
+      }catch(err){
+        console.log(err);
+      }
+
+    }
+fetchpost();
+  },[])
+  // console.log(userpost);
   return (
     <>
     <div className='prof'>
@@ -37,16 +74,42 @@ function Profile() {
       <img src={user.photoURL} alt=""  />
       <h3>{user.displayName}</h3>
 
-      <div className="ar"><p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit, 
-        amet consectetur adipisicing elit. Ratione numquam 
-        dignissimos doloremque maiores rerum itaque facilis laborum minus eligendi suscipit!</p></div>
+    {userbio?(
+       <div className="ar"><p>{userbio.bio}</p>
+       </div>
+    ):(
+<div className="ar"><p></p>
+        </div>
+    )}  
       </div>
 
       {/* // my posts */}
       <div>
-        My Posts
+       <h3>
+          My Posts
+         </h3>
         <hr />
+        <div className='cardcover'>
 
+
+        {
+          userpost.map((post)=>{
+            
+    return  <div className='card' >
+      <span >{post.name}</span>
+      <span className="name">{new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}</span>
+      <h3>{post.title}</h3>
+      <span className='tags'>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
+  
+      <p>{post.post.substring(0,70)}...</p>
+{/* <p>❤️</p> */}
+{/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
+<Link to={`/${post.title}`}>FULL</Link>
+      </div>
+   })
+  }
+
+            </div>
       </div>
 
 
