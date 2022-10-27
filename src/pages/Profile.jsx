@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Button, Modal } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../Context'
-import { db } from '../firebase';
+import { db,storage } from '../firebase';
 import "../style/profile.css"
 
 function Profile() {

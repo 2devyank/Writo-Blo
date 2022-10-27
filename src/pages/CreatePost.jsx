@@ -4,9 +4,12 @@ import React from 'react'
 import "../style/create.css"
 import {useState} from "react";
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db ,storage} from '../firebase';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
+import {v4} from "uuid"
+import { ref, uploadBytes } from 'firebase/storage';
+// import storage from "../firebase"
 function CreatePost() {
   const [file,setfile]=useState(null);
   
@@ -44,12 +47,20 @@ const createPost=async(e)=>{
 navigate("/");
 }
 
+const uploadimage=()=>{
+  if(file==null) return;
+  const imageRef=ref(storage,`images/${file.name+v4()}`)
+  uploadBytes(imageRef,file).then(()=>{
+    alert('image uploaded')
+  })
+}
 
   return (
     <div className="create">
 
     <Form className="col" onSubmit={createPost}>
-    <input type="file" value={file} onChange={(e)=>setfile(e.target.files[0])} />
+    <input type="file"  onChange={(e)=>{setfile(e.target.files[0])}} />
+    <Button onClick={uploadimage}>upload</Button>
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>Title</Form.Label>
       <Form.Control value={title} onChange={(e)=>settitle(e.target.value)} className="in" type="text" placeholder="Enter title" />
