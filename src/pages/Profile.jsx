@@ -2,13 +2,13 @@ import { addDoc, collection, doc, getDoc, getDocs, query, setDoc, where } from '
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Button, Modal } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../Context'
 import { db } from '../firebase';
 import "../style/profile.css"
 
 function Profile() {
-  const {user} =useUserAuth();
+  const {user,logout} =useUserAuth();
   // console.log(user);
 
   const [show, setShow] = useState(false);
@@ -60,13 +60,19 @@ function Profile() {
     }
 fetchpost();
   },[])
+  const navigate=useNavigate();
   // console.log(userpost);
+  const funout=()=>{
+    logout();
+    navigate("/login")
+    
+  }
   return (
     <>
     <div className='prof'>
       {/* //buttons */}
         <div className='buts'>
-          <Button>LOGOUT</Button>
+          <Button onClick={funout}>LOGOUT</Button>
           <Button onClick={handleShow}>ADD BIO</Button>
         </div>
         {/* //img and profile */}

@@ -30,7 +30,7 @@ unsubscribe();
     },[])
 
     return (
-        <userAuthcontext.Provider value={{googlesignin,user}}>
+        <userAuthcontext.Provider value={{googlesignin,user,logout}}>
             {children}
         </userAuthcontext.Provider>
     )

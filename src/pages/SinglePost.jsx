@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase';
 import "../style/single.css"
+import ReactMarkdown from 'react-markdown'
 
 function SinglePost() {
 const [post,setpost]=useState({});
@@ -56,7 +57,9 @@ const {name}=useParams();
     {/* <span >{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span> */}
     {/* {post.tags[0]} */}
   <p>
-  {post.post}
+  <ReactMarkdown>
+    {post.post}
+    </ReactMarkdown>
       </p> 
 
 </div>

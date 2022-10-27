@@ -8,6 +8,7 @@ import { db } from '../firebase';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 function CreatePost() {
+  const [file,setfile]=useState(null);
   
   const [title,settitle]=useState("");
   const [post,setpost]=useState("");
@@ -48,6 +49,7 @@ navigate("/");
     <div className="create">
 
     <Form className="col" onSubmit={createPost}>
+    <input type="file" value={file} onChange={(e)=>setfile(e.target.files[0])} />
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>Title</Form.Label>
       <Form.Control value={title} onChange={(e)=>settitle(e.target.value)} className="in" type="text" placeholder="Enter title" />
