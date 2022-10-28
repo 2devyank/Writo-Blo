@@ -7,6 +7,7 @@ const userAuthcontext=createContext();
 
 export function UserAuthContextProvider({children}){
 const [user,setuser]=useState("");
+// const [like,setlike]=useState(0);
 
     function logout(){
         return signOut(auth);

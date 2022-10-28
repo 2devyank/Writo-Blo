@@ -9,8 +9,19 @@
     display: flex;
     padding: 0px 200px;
     border: 1px solid red;
+    gap: 50px;
 }
 .dat{
     font-size: smaller;
 color: gray;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    text-align: center;
+}
+.like{
+background-color: none;
+
 }

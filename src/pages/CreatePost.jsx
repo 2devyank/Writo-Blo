@@ -3,12 +3,13 @@ import React from 'react'
 // import Form from 'react-bootstrap/Form';
 import "../style/create.css"
 import {useState} from "react";
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { db ,storage} from '../firebase';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import {v4} from "uuid"
 import { ref, uploadBytes } from 'firebase/storage';
+import { useEffect } from 'react';
 // import storage from "../firebase"
 function CreatePost() {
   const [file,setfile]=useState(null);
@@ -43,7 +44,7 @@ const navigate=useNavigate();
 
 const createPost=async(e)=>{
   e.preventDefault();
-  await addDoc(collection(db,"posts"),{title,post,tags,createdAt:serverTimestamp(),name:localStorage.getItem("name"),id:localStorage.getItem("Id")})
+  await addDoc(collection(db,"posts"),{title,numbe:0,post,tags,createdAt:serverTimestamp(),name:localStorage.getItem("name"),id:localStorage.getItem("Id")})
 navigate("/");
 }
 
@@ -54,6 +55,9 @@ const uploadimage=()=>{
     alert('image uploaded')
   })
 }
+
+
+  
 
   return (
     <div className="create">
