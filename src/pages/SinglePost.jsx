@@ -8,11 +8,12 @@ import "../style/single.css"
 import ReactMarkdown from 'react-markdown'
 import { useUserAuth } from '../Context';
 import { Button } from 'react-bootstrap';
+import {useRef} from "react";
 
 function SinglePost() {
 const [post,setpost]=useState({});
 const {name}=useParams();
-// const {like,setlike}=useUserAuth();
+const {user}=useUserAuth();
 
 
 
@@ -41,9 +42,12 @@ const {name}=useParams();
   },[])
     // console.log(post.numbe)
     const [like,setlike]=useState(null);
-
+    const buttonref=useRef(null);
+  // const [abled,setabled]=useState(true);
     const upgrade=async()=>{
+      buttonref.current.disabled=true;
       setlike(post.numbe+1);
+      // setabled(false);
       const updateref=  doc(db,"posts",localStorage.getItem("dob"))
       await updateDoc(updateref,{
         numbe:post.numbe+1
@@ -57,9 +61,11 @@ const {name}=useParams();
 
       <div className='side'>
 
-   <Button className='like' onClick={upgrade}>
-     <h4>❤️</h4>
-     </Button> 
+  <Button className='like' ref={buttonref} onClick={upgrade}>
+  <h4>❤️</h4>
+  </Button> 
+
+   
 
         <p>{like>post.numbe?(like):(post.numbe)}</p>
 
