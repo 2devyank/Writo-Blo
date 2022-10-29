@@ -92,7 +92,7 @@ const uploadimage=()=>{
      
     </Form.Group>
     
-    <Button  variant="primary" type="submit">
+    <Button variant="outline-light" type="submit">
       Submit Post
     </Button>
   </Form>

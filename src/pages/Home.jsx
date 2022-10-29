@@ -40,8 +40,9 @@ function Home() {
  {
    postdata.map((post)=>{
      
-    return  <div className='card' >
+    return  <div className='cardprof' >
       <span >{post.name}</span>
+      <br />
       <span className="name">{new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}</span>
       <h3>{post.title}</h3>
       <span className='tags'>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
@@ -49,7 +50,7 @@ function Home() {
       <p>{post.post.substring(0,70)}...</p>
 {/* <p>❤️</p> */}
 {/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
-<Link to={`/${post.title}`}>FULL</Link>
+<Link className='link' to={`/${post.title}`}>View Blog</Link>
       </div>
    })
       

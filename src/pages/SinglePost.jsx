@@ -61,9 +61,9 @@ const {user}=useUserAuth();
 
       <div className='side'>
 
-  <Button className='like' ref={buttonref} onClick={upgrade}>
+  <button className='like' ref={buttonref} onClick={upgrade}>
   <h4>❤️</h4>
-  </Button> 
+  </button> 
 
    
 

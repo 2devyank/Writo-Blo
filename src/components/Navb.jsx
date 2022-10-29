@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Navigate, useNavigate } from 'react-router-dom';
+import "../style/navbar.css"
 
 function Navb() {
   const navigate=useNavigate();
@@ -20,7 +21,7 @@ function Navb() {
     navigate("/create")
   }
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className='nav'  expand="lg">
     <Container fluid>
       <Navbar.Brand onClick={handlehomeclick}>WritoBlo</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />

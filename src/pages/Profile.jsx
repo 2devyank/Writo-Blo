@@ -9,7 +9,7 @@ import "../style/profile.css"
 
 function Profile() {
   const {user,logout} =useUserAuth();
-  // console.log(user);
+  console.log(user);
 
   const [show, setShow] = useState(false);
   const [bio,setbio]=useState("");
@@ -72,12 +72,12 @@ fetchpost();
     <div className='prof'>
       {/* //buttons */}
         <div className='buts'>
-          <Button onClick={funout}>LOGOUT</Button>
-          <Button onClick={handleShow}>ADD BIO</Button>
+          <Button variant="outline-light" onClick={funout}>LOGOUT</Button>
+          <Button  variant="outline-light" onClick={handleShow}>ADD BIO</Button>
         </div>
         {/* //img and profile */}
       <div className='mid'>
-      <img src={user.photoURL} alt=""  />
+      <img src={localStorage.getItem("photo")} alt=""  />
       <h3>{user.displayName}</h3>
 
     {userbio?(
@@ -101,8 +101,9 @@ fetchpost();
         {
           userpost.map((post)=>{
             
-    return  <div className='card' >
+    return  <div className='cardprof' >
       <span >{post.name}</span>
+      <br />
       <span className="name">{new Date(post.createdAt.seconds * 1000).toLocaleDateString("en-US")}</span>
       <h3>{post.title}</h3>
       <span className='tags'>{post.tags.map((t)=> <span>#{t+"  "}</span> )}</span>
@@ -110,7 +111,9 @@ fetchpost();
       <p>{post.post.substring(0,70)}...</p>
 {/* <p>❤️</p> */}
 {/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
-<Link to={`/${post.title}`}>FULL</Link>
+{/* <Link to={`/${post.title}`}>FULL</Link>
+ */}
+ <Link className='link' to={`/${post.title}`}>View Blog</Link>
       </div>
    })
   }
@@ -120,7 +123,7 @@ fetchpost();
 
 
     </div>
-    <Modal show={show} onHide={handleclose} animation={false}>
+    <Modal className="modal" show={show} onHide={handleclose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>ADD YOUR BIO</Modal.Title>
         </Modal.Header>
@@ -128,7 +131,7 @@ fetchpost();
         <textarea name="" id="" className="mod" value={bio} onChange={(e)=>setbio(e.target.value)}  />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleclose}>
+          <Button  variant="secondary" onClick={handleclose}>
             Close
           </Button>
           <Button variant="primary" onClick={handlebio}>

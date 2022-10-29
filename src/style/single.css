@@ -2,14 +2,18 @@
     /* display: flex;
     flex-direction: column; */
     width: 70%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 15px 15px;
+    background-color: #d9d9d9;
+    border-radius: 1rem;
 }
 .pd{
     display: flex;
-    padding: 0px 200px;
-    border: 1px solid red;
+    padding: 50px 200px;
+    /* border: 1px solid red; */
     gap: 50px;
+    background-color: #ff6a64;
+    height: 100vh;
 }
 .dat{
     font-size: smaller;
@@ -22,6 +26,10 @@ color: gray;
     text-align: center;
 }
 .like{
-background-color: none;
-
+    background-color: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
