@@ -6,10 +6,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useUserAuth } from '../Context';
 import "../style/navbar.css"
 
 function Navb() {
   const navigate=useNavigate();
+  const {search,setsearch}=useUserAuth();
   
   const handlehomeclick=()=>{
     navigate("/")
@@ -42,8 +44,10 @@ function Navb() {
             placeholder="Search"
             className="me-2"
             aria-label="Search"
+            
+            onChange={(e)=>setsearch(e.target.value)}
           />
-          <Button variant="outline-success">Search</Button>
+          {/* <Button variant="outline-success">Search</Button> */}
         </Form>
       </Navbar.Collapse>
     </Container>

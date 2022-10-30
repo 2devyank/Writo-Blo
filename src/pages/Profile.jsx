@@ -77,7 +77,7 @@ fetchpost();
         </div>
         {/* //img and profile */}
       <div className='mid'>
-      <img src={localStorage.getItem("photo")} alt=""  />
+      <img src={user.photoURL} alt=""  />
       <h3>{user.displayName}</h3>
 
     {userbio?(

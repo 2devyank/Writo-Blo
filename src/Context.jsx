@@ -1,6 +1,7 @@
 import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { collection, getDocs } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, provider } from "./firebase";
+import { auth, db, provider } from "./firebase";
 
 
 const userAuthcontext=createContext();
@@ -29,9 +30,34 @@ const [user,setuser]=useState("");
 unsubscribe();
         }
     },[])
+    const [postdata,setpostdata]=useState([]);
+  useEffect(()=>{
+    const fetchdata=async()=>{
+      let list=[];
+      try{
+        const querysnapshot=await getDocs(collection(db,"posts"))
+        querysnapshot.forEach((doc)=>{
+          list.push({...doc.data()})
+          setpostdata(list);
+        })
+      }catch(err){
+        console.log(err)
+      }
+     
+    }
+    fetchdata();
+  },[])
+  const [search,setsearch]=useState("");
+  const handlesearch=()=>{
+    return postdata.filter((post)=>
 
+    post.title.toLowerCase().includes(search)
+    ||
+    post.name.toLowerCase().includes(search)
+    )
+  }
     return (
-        <userAuthcontext.Provider value={{googlesignin,user,logout}}>
+        <userAuthcontext.Provider value={{googlesignin,user,logout,postdata,setsearch,search,handlesearch}}>
             {children}
         </userAuthcontext.Provider>
     )

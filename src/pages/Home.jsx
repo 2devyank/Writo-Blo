@@ -8,23 +8,7 @@ import { db } from '../firebase.jsx';
 import "../style/home.css"
 
 function Home() {
-  const [postdata,setpostdata]=useState([]);
-  useEffect(()=>{
-    const fetchdata=async()=>{
-      let list=[];
-      try{
-        const querysnapshot=await getDocs(collection(db,"posts"))
-        querysnapshot.forEach((doc)=>{
-          list.push({...doc.data()})
-          setpostdata(list);
-        })
-      }catch(err){
-        console.log(err)
-      }
-     
-    }
-    fetchdata();
-  },[])
+  const {postdata,handlesearch}=useUserAuth()
   // console.log(postdata[0].timestamp);
   // console.log(postdata)
  const  navigate=useNavigate();
@@ -38,7 +22,7 @@ function Home() {
       <div className='cardcover'>
  
  {
-   postdata.map((post)=>{
+   handlesearch().map((post)=>{
      
     return  <div className='cardprof' >
       <span >{post.name}</span>

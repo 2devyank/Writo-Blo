@@ -21,7 +21,7 @@ console.log(err);
     <div className='outer'>
         <div className='inner'>
             <h2>Login</h2>
-            <Button onClick={handlelogin}>Login With Google</Button>
+            <Button variant='outline-light' onClick={handlelogin}>Login With Google</Button>
         </div>
     </div>
   )
