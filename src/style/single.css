@@ -7,6 +7,9 @@
     background-color: #d9d9d9;
     border-radius: 1rem;
 }
+.postim{
+    width: 100%;
+}
 .pd{
     display: flex;
     padding: 50px 200px;

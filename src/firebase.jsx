@@ -5,16 +5,16 @@ import {getAuth,GoogleAuthProvider} from "firebase/auth";
 import {getStorage} from "firebase/storage"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAlz-OWdsycvFskfYV2CeXlL_OTqcLzZHc",
-  authDomain: "blog-b3ac2.firebaseapp.com",
-  projectId: "blog-b3ac2",
-  storageBucket: "blog-b3ac2.appspot.com",
-  messagingSenderId: "433030019024",
-  appId: "1:433030019024:web:ae13225f4e28131f026bd5",
-  measurementId: "G-JXEQT13J68"
+  apiKey: import.meta.env.VITE_KEY,
+  authDomain:import.meta.env.VITE_D ,
+  projectId: import.meta.env.VITE_PID,
+  storageBucket: import.meta.env.VITE_SB,
+  messagingSenderId:import.meta.env.VITE_MSI,
+  appId: import.meta.env.VITE_APPID,
+  measurementId:import.meta.env.VITE_MID
 };
 
-
+// console.log(import.meta.env.VITE_SOME_KEY)
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
