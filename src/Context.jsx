@@ -54,6 +54,15 @@ unsubscribe();
     post.title.toLowerCase().includes(search)
     ||
     post.name.toLowerCase().includes(search)
+    ||
+    post.tags[0].toLowerCase().includes(search)
+    // ||
+    // post.tags[1].toLowerCase().includes(search)
+    // ||
+    // post.tags[2].toLowerCase().includes(search)
+    // ||
+    // post.tags[3].toLowerCase().includes(search)
+    // post.tags.map((t)=>t.toLowerCase().includes(search))
     )
   }
     return (
