@@ -80,6 +80,8 @@ const {user}=useUserAuth();
       ):(
    
     <div className='display'>
+      <img className='postim' src={post.img} alt="" />
+      <br />
     <span>
     {post.name}</span>
     <br />
