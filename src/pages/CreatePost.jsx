@@ -110,6 +110,11 @@ uploadTask.on('state_changed',
     <Form.Group className="mb-3" controlId="formBasicPassword">
       <Form.Label>Tags</Form.Label>
       <br />
+      <span className="gr">
+          (Add upto 4 tags)
+        </span>
+      
+      <br />
       {
         tags.map((tag,index)=>(
           <div className="tag-item">
