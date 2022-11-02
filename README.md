@@ -23,3 +23,6 @@ It is a blog project where user can create their account and add blog .
 **Profile Page**
 ![Screenshot from 2022-11-02 11-43-34](https://user-images.githubusercontent.com/78840243/199448225-e01a300a-bc83-4414-9cda-17c9158f5d13.png)
 
+**Post View**
+<br/>
+![Screenshot from 2022-11-02 11-44-33](https://user-images.githubusercontent.com/78840243/199449653-cd50021d-114a-41f6-8cf8-14b6753f0645.png)
