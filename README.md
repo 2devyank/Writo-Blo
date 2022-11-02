@@ -5,7 +5,7 @@ It is a blog project where user can create their account and add blog .
 - for backend functionality - firebase is used
 
 **Features**
-- support markdown
+- supports markdown
 - google Log-in
 - user can add bio
 - user can create Post
