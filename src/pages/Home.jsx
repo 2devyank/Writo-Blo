@@ -34,6 +34,8 @@ function Home() {
       <p>{post.post.substring(0,70)}...</p>
 {/* <p>❤️</p> */}
 {/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
+<h6>❤️ {post.numbe}</h6>
+
 <Link className='link' to={`/${post.title}`}>View Blog</Link>
       </div>
    })

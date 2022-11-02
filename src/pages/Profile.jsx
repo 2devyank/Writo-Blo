@@ -77,7 +77,7 @@ fetchpost();
         </div>
         {/* //img and profile */}
       <div className='mid'>
-      <img src={user.photoURL} alt=""  />
+      <img src={localStorage.getItem("photo")} alt=""  />
       <h3>{user.displayName}</h3>
 
     {userbio?(
@@ -113,6 +113,7 @@ fetchpost();
 {/* <button onClick={handlecard(`${post.title}`)}>View Full</button> */}
 {/* <Link to={`/${post.title}`}>FULL</Link>
  */}
+ <h6>❤️ {post.numbe}</h6>
  <Link className='link' to={`/${post.title}`}>View Blog</Link>
       </div>
    })

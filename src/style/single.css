@@ -6,6 +6,7 @@
     padding: 15px 15px;
     background-color: #d9d9d9;
     border-radius: 1rem;
+
 }
 .postim{
     width: 100%;
@@ -16,7 +17,7 @@
     /* border: 1px solid red; */
     gap: 50px;
     background-color: #ff6a64;
-    height: 100vh;
+    height: 100%;
 }
 .dat{
     font-size: smaller;

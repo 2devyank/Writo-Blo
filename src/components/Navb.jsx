@@ -25,7 +25,7 @@ function Navb() {
   return (
     <Navbar className='nav'  expand="lg">
     <Container fluid>
-      <Navbar.Brand onClick={handlehomeclick}>WritoBlo</Navbar.Brand>
+      <Navbar.Brand className='titl' onClick={handlehomeclick}>WritoBlo</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
