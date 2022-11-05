@@ -10,9 +10,11 @@ import { Button, Form } from 'react-bootstrap';
 import {v4} from "uuid"
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
 import { useEffect } from 'react';
+import { useUserAuth } from '../Context';
 // import storage from "../firebase"
 function CreatePost() {
   const [file,setfile]=useState(null);
+  const {user}=useUserAuth();
   
   const [title,settitle]=useState("");
   const [post,setpost]=useState("");
@@ -95,7 +97,9 @@ uploadTask.on('state_changed',
 },[file])
 
   
-
+if(!user){
+  navigate("/login");
+}
   return (
     <div className="create">
 

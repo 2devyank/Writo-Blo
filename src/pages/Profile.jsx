@@ -67,6 +67,9 @@ fetchpost();
     navigate("/login")
     
   }
+  if(!user){
+    navigate("/login");
+  }
   return (
     <>
     <div className='prof'>

@@ -1,4 +1,4 @@
-import { BrowserRouter,Route ,Routes} from 'react-router-dom';
+import { BrowserRouter,Route ,Routes, useLocation} from 'react-router-dom';
 import Navb from './components/Navb';
 import CreatePost from './pages/CreatePost';
 import Home from './pages/Home';
@@ -9,9 +9,23 @@ import SinglePost from './pages/SinglePost';
 
 function App() {
   
-
+// const location=useLocation();
+// console.log(location)
   return (
    <BrowserRouter>
+   {window.location.pathname==='/login'?(
+    <div>
+     <Routes>
+       <Route  path="/" element={<Home/>} />
+       <Route  path="/login" element={<Login/>} />
+       {/* <Route  path="/post" element={<Post/>} /> */}
+       <Route  path="/create" element={<CreatePost/>} />
+       <Route  path="/profile" element={<Profile/>} />
+       <Route  path="/:name" element={<SinglePost/>} />
+     </Routes>
+   </div>
+   ):(
+    <>
    <Navb/>
    <div>
      <Routes>
@@ -23,6 +37,8 @@ function App() {
        <Route  path="/:name" element={<SinglePost/>} />
      </Routes>
    </div>
+   </>
+   )}
    </BrowserRouter>
   )
 }

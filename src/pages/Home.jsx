@@ -8,7 +8,7 @@ import { db } from '../firebase.jsx';
 import "../style/home.css"
 
 function Home() {
-  const {postdata,handlesearch}=useUserAuth()
+  const {postdata,handlesearch,user}=useUserAuth()
   // console.log(postdata[0].timestamp);
   // console.log(postdata)
  const  navigate=useNavigate();
@@ -16,7 +16,11 @@ function Home() {
   //     navigate(`/home/${name}`)
 
   // }
+  if(!user){
+    navigate("/login");
+  }
   return (
+
     <div className='home'>
 
       <div className='cardcover'>

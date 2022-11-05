@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../Context'
 import "../style/login.css"
 
@@ -16,7 +16,8 @@ navigate("/")
 console.log(err);
     }
   }
-
+const location=useLocation();
+console.log(location);
   return (
     <div className='outer'>
         <div className='inner'>
