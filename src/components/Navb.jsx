@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../Context';
 import "../style/navbar.css"
 
@@ -21,6 +21,9 @@ function Navb() {
   }
   const handlecreateclick=()=>{
     navigate("/create")
+  }
+  const handleloginevent=()=>{
+    navigate("/login")
   }
   return (
     <Navbar className='nav'  expand="lg">
@@ -47,6 +50,12 @@ function Navb() {
             
             onChange={(e)=>setsearch(e.target.value)}
           />
+         
+            <button className='logbut'><Link className='lin' to="/login">
+              LOGIN
+              </Link>
+              </button>
+            
           {/* <Button variant="outline-success">Search</Button> */}
         </Form>
       </Navbar.Collapse>

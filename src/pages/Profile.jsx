@@ -68,7 +68,7 @@ fetchpost();
     
   }
   if(!user){
-    navigate("/login");
+   window.location.pathname="/login"
   }
   return (
     <>

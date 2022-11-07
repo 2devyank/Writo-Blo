@@ -16,9 +16,7 @@ function Home() {
   //     navigate(`/home/${name}`)
 
   // }
-  if(!user){
-    navigate("/login");
-  }
+
   return (
 
     <div className='home'>

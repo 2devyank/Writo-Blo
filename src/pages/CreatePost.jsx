@@ -97,9 +97,7 @@ uploadTask.on('state_changed',
 },[file])
 
   
-if(!user){
-  navigate("/login");
-}
+
   return (
     <div className="create">
 

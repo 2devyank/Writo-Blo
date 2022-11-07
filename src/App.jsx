@@ -13,19 +13,9 @@ function App() {
 // console.log(location)
   return (
    <BrowserRouter>
-   {window.location.pathname==='/login'?(
-    <div>
-     <Routes>
-       <Route  path="/" element={<Home/>} />
-       <Route  path="/login" element={<Login/>} />
-       {/* <Route  path="/post" element={<Post/>} /> */}
-       <Route  path="/create" element={<CreatePost/>} />
-       <Route  path="/profile" element={<Profile/>} />
-       <Route  path="/:name" element={<SinglePost/>} />
-     </Routes>
-   </div>
-   ):(
-    <>
+   
+    
+    
    <Navb/>
    <div>
      <Routes>
@@ -37,8 +27,7 @@ function App() {
        <Route  path="/:name" element={<SinglePost/>} />
      </Routes>
    </div>
-   </>
-   )}
+   
    </BrowserRouter>
   )
 }

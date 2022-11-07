@@ -5,3 +5,19 @@
 .titl{
     cursor: pointer;
 }
+.lin{
+    /* background-color: none; */
+    /* border: none; */
+    /* background: none; */
+    font-style: none;
+    text-decoration: none;
+    color: black;
+}
+.logbut {
+    /* background-color: none; */
+    /* border: none; */
+    border: 1px solid black;
+    background: none;
+    font-style: none;
+    text-decoration: none;
+}
