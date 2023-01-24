@@ -1,4 +1,4 @@
-.ar{
+.ar {
     width: 70%;
     height: 120px;
     padding: 12px 20px;
@@ -7,58 +7,67 @@
     border-radius: 4px;
     background-color: #f8f8f8;
     font-size: 16px;
-  
+
 }
-.prof{
+.topup{
+    display: flex;
+    gap: 10px;
+}
+
+.prof {
     padding: 30px 50px;
     background-color: #ff6a64;
     height: 90%;
 }
-.buts{
+
+.buts {
     display: flex;
     gap: 10px;
     flex-direction: row-reverse;
 }
-.mid{
+
+.mid {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.mid img{
-height: 100px;
-width: 100px;
-border-radius: 50%;
+
+.mid img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
 
 }
-.ar{
+
+.ar {
     background-color: #d9d9d9;
 }
-.mod{
+
+.mod {
     width: 100%;
-  height: 250px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
+    height: 250px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
 }
-.cardprof{
-    
-     background-color: #d9d9d9;
+
+.cardprof {
+
+    background-color: #d9d9d9;
     border-radius: 1rem;
-width: 40%;
-height: 50%;
-padding: 15px 15px;
+    width: 40%;
+    height: 50%;
+    padding: 15px 15px;
 
 }
-.cardcover{
-    /* border: 1px solid red; */
+
+.cardcover {
+
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    /* padding: 0px 100px; */
-    /* justify-content: center;
-     */
-     align-items: center;
+    gap: 30px; 
+    align-items: center;
 }

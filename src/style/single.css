@@ -17,7 +17,7 @@
     /* border: 1px solid red; */
     gap: 50px;
     background-color: #ff6a64;
-    height: 100%;
+   min-height: 100vh;
 }
 .dat{
     font-size: smaller;

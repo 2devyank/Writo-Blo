@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Button, Modal } from 'react-bootstrap'
@@ -10,6 +10,10 @@ import "../style/profile.css"
 function Profile() {
   const {user,logout} =useUserAuth();
   console.log(user);
+  const del=async (e)=>{
+    e.preventDefault();
+    await deleteDoc(doc(db,"posts",localStorage.getItem("dob")))
+  }
 
   const [show, setShow] = useState(false);
   const [bio,setbio]=useState("");
@@ -117,7 +121,14 @@ fetchpost();
 {/* <Link to={`/${post.title}`}>FULL</Link>
  */}
  <h6>❤️ {post.numbe}</h6>
+ <div className='topup'>
+  
  <Link className='link' to={`/${post.title}`}>View Blog</Link>
+ 
+ <button  className='link' onClick={del}>
+            Delete
+          </button>
+ </div>
       </div>
    })
   }
