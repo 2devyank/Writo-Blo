@@ -8,14 +8,8 @@ import Profile from './pages/Profile';
 import SinglePost from './pages/SinglePost';
 
 function App() {
-  
-// const location=useLocation();
-// console.log(location)
   return (
    <BrowserRouter>
-   
-    
-    
    <Navb/>
    <div>
      <Routes>
@@ -27,7 +21,6 @@ function App() {
        <Route  path="/:name" element={<SinglePost/>} />
      </Routes>
    </div>
-   
    </BrowserRouter>
   )
 }
